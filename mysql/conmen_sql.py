@@ -1,3 +1,5 @@
+from tkinter import E
+
 import pymysql
 
 
@@ -11,6 +13,5 @@ def readSql(sql):
         # 执行sql 进行查询
         aa = curosor.execute(sql)
         info = curosor.fetchamany(aa)
-
-    finally:
-        pass
+    except Exception:
+        print("数据库连接异常" + E)
