@@ -19,3 +19,5 @@ def login(requset):
         else:
             return render(requset, "login.html", {"error": "username or password error"})
     return render(requset, "login.html")
+def home(request):
+    return  render(request,"home.html")
