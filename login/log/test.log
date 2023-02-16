@@ -1,0 +1,10 @@
+2023-02-15 14:11:35,588 - DEBUG - This is a loggging debug message
+2023-02-15 14:11:35,589 - INFO - This is a loggging info message
+2023-02-15 14:11:35,589 - WARNING - This is a loggging warning message
+2023-02-15 14:11:35,589 - ERROR - This is a loggging error message
+2023-02-15 14:11:35,589 - CRITICAL - This is a loggging critical message
+2023-02-15 14:24:26,506 - DEBUG - This is a loggging debug message
+2023-02-15 14:24:26,506 - INFO - This is a loggging info message
+2023-02-15 14:24:26,506 - WARNING - This is a loggging warning message
+2023-02-15 14:24:26,506 - ERROR - This is a loggging error message
+2023-02-15 14:24:26,506 - CRITICAL - This is a loggging critical message
