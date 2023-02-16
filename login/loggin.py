@@ -52,11 +52,3 @@ class Logs(object):
     def debug(self, log_message):
         self.logger.debug(log_message)
 
-
-LOG = Logs()
-
-LOG.debug('This is a loggging debug message')
-LOG.info('This is a loggging info message')
-LOG.warning('This is a loggging warning message')
-LOG.error('This is a loggging error message')
-LOG.critical('This is a loggging critical message')
