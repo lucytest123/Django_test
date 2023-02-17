@@ -10,6 +10,15 @@ class MyConfigParser(configparser):
     def optionxform(self,optionstr):
         return optionstr
 
+
+def load_json(file_path):
+    logger.info("加载{}文件.....".format(file_path))
+    with open(file_path)as f:
+        date = json.load(file_path)
+    logger.info("读取数据内容：{}".format(date))
+    return date
+
+
 class  readFileData():
     def __int__(self):
         pass
@@ -28,10 +37,5 @@ class  readFileData():
         logger.info("读取数据内容：{}..".format(data))
         return data
 
-    def load_json(self,file_path):
-        logger.info("加载{}文件.....".format(file_path))
-        with open(file_path)as f:
-            date = json.load(file_path)
-        logger.info("读取数据内容：{}".format(date))
-        return date
+
 data = readFileData()

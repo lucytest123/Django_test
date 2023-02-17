@@ -4,14 +4,14 @@ from Django_test.common.loggin import logger
 import pymysql
 
 Base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-data_file_path = os.path.join(Base_path, "config", "setting.ini")
+data_file_path = os.path.join(Base_path, "config", "config.ini")
 data = data.load_ini(data_file_path)["mysql"]
 
 DB_CONF = {
-    "host": data[""],
-    "port": data[""],
-    "user": data[""],
-    "password": data[""],
+    "host": data["host"],
+    "port": data["port"],
+    "user": data["username"],
+    "password": data["password"],
     "db": data[""]
 
 }
