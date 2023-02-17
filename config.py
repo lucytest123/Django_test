@@ -7,5 +7,28 @@ def conlog(name):
     con_path = os.path.join(os.getcwd(), "config.ini")
     cf.read(con_path)
     valuer = cf.get("log", name)
-    print(valuer)
     return valuer
+
+
+def get_config_mysql(name):
+    cf = configparser.ConfigParser()
+    cf.read(os.path.join(os.getcwd(), "config.ini"))
+    value = cf.get("mysql", name)
+    return value
+
+
+def get_config_log(name):
+    cf = configparser.ConfigParser()
+    cf.read(os.path.join(os.getcwd(), "config.ini"))
+    value = cf.get("log", name)
+    return value
+
+
+
+
+
+
+
+
+
+
