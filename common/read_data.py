@@ -35,7 +35,7 @@ class readFileData():
         logger.info("读取数据==》 {}".format(data))
         return data
 
-    # 读取ini配置文件
+    #    读取ini配置文件
     def load_ini(self, file_path):
         logger.info("加载{}文件....".format(file_path))
         config = MyConfigParser()
