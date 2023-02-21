@@ -1,25 +1,21 @@
 import logging
-import os
-
 import pytest as pytest
 
 from Django_test.common import Assert
 from Django_test.common.loggin import logger
-from Django_test.common.read_data import data
+from Django_test.common.config_path import commfig
 import requests
 
-Base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-data_file_path = os.path.join(Base_path, "config", "config.ini")
-data_url = data.load_ini(data_file_path)["log"]
-data_login = data.load_ini(data_url)["login"]
+
 
 
 class Test_login(pytest):
     def __int__(self):
-        self.url = data_url
+        self.url = commfig("log")
+        data = commfig("login")
         self.data_json = {
-            "username": data_login["username"],
-            "password": data_login["password"]
+            "username": data["username"],
+            "password": data["password"]
         }
 
     @pytest.fixture()

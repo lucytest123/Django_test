@@ -1,12 +1,8 @@
-import os.path
-from Django_test.common.read_data import data
 from Django_test.common.loggin import logger
+from Django_test.common.config_path import commfig
 import pymysql
 
-Base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-data_file_path = os.path.join(Base_path, "config", "config.ini")
-data = data.load_ini(data_file_path)["mysql"]
-
+data = commfig("mysql")
 DB_CONF = {
     "host": data["host"],
     "port": data["port"],
