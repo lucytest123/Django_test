@@ -47,6 +47,6 @@ class Assertion:
             assert time < expected_time
             return True
         except:
-            logger.debug("Response time > expected_time, expected_time is {}, time is {}" .format(expected_time, time))
+            logger.debug("Response time > expected_time, expected_time is {}, time is {}".format(expected_time, time))
             common.RESULT_LIST.append("fail")
             raise
