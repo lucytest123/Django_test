@@ -5,13 +5,13 @@ import os
 
 Base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 data_file_path = os.path.join(Base_path, "config", "config.ini")
-host = data.load_ini(data_file_path)["Encoding_mySql"]["host"]
+host = data.load_ini(data_file_path)["locality_mysql"]["host"]
 logger.info("输出结果为：" + host)
-port = int(data.load_ini(data_file_path)["Encoding_mySql"]["port"])
+port = int(data.load_ini(data_file_path)["locality_mysql"]["port"])
 logger.info("输出结果为：" + str(port))
-username = data.load_ini(data_file_path)["Encoding_mySql"]["username"]
+username = data.load_ini(data_file_path)["locality_mysql"]["username"]
 logger.info("输出结果为：" + username)
-password = data.load_ini(data_file_path)["Encoding_mySql"]["password"]
+password = data.load_ini(data_file_path)["locality_mysql"]["password"]
 logger.info("输出结果为：" + password)
 DB_CONF = {
     "host": host,
