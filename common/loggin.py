@@ -1,7 +1,6 @@
-
 import logging
 import logging.handlers
-import os,time
+import os, time
 from pathlib import Path
 
 from Django_test import config
@@ -12,6 +11,7 @@ log_dir = Path(file_path)
 if not log_dir.is_dir():
     log_dir.mkdir(parents=True)
 
+
 class Logger():
 
     def __init__(self):
@@ -20,7 +20,6 @@ class Logger():
         self.logger.setLevel(logging.DEBUG)
         self.formater = logging.Formatter(
             '[%(asctime)s][%(filename)s %(lineno)d][%(levelname)s]: %(message)s')
-
         self.filelogger = logging.FileHandler(self.logname, mode='a', encoding="UTF-8")
         self.console = logging.StreamHandler()
         self.console.setLevel(logging.DEBUG)

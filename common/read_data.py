@@ -1,4 +1,4 @@
-import configparser as configparser
+from configparser import ConfigParser
 import json
 import os.path
 
@@ -7,9 +7,9 @@ import xlrd
 from Django_test.common.loggin import logger
 
 
-class MyConfigParser(configparser):
-    def __int__(self, dafaults=None):
-        configparser.ConfigParser.__init__(self, defaults=dafaults)
+class MyConfigParser(ConfigParser):
+    def __init__(self, dafaults=None):
+        ConfigParser.__init__(self, defaults=dafaults)
 
     def optionxform(self, optionstr):
         return optionstr
@@ -24,7 +24,7 @@ def load_json(file_path):
 
 
 class readFileData():
-    def __int__(self):
+    def __init__(self):
         pass
 
     # 读取yaml
@@ -37,17 +37,23 @@ class readFileData():
 
     #    读取ini配置文件
     def load_ini(self, file_path):
-        logger.info("加载{}文件....".format(file_path))
-        config = MyConfigParser()
-        config.read(file_path, encoding="utf-8")
-        data = dict(config._sections)
-        logger.info("读取数据内容：{}..".format(data))
-        return data
+        try:
+            if (os.path.exists(file_path)):
+                logger.info("加载{}文件....".format(file_path))
+                config = MyConfigParser()
+                config.read(file_path, encoding="UTF-8")
+                data = dict(config._sections)
+                return data
+            else:
+                logger.debug("{}文件路径不存在")
+                assert FileNotFoundError
+        except Exception as e:
+            logger.debug("文件读取失败" + str(e))
 
     # 读取xls文件 输出行数据
     def load_xls_norws(self, file_path):
         if os.path.exists(file_path):
-            logger.info("加载{}文件......".format(file_path))
+            logger.info("加载{}文件........".format(file_path))
             config = xlrd.open_workbook(filename=file_path)
             sheet = config.sheet_by_index(0)
             nrows = sheet.nrows  # 获取行数
