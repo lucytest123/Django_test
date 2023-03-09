@@ -11,9 +11,10 @@ delect_sql = "DELETE FROM 'edc'.'ecoding_taige_edc_mh_raw' WHERE project_no = 'T
 
 def test_mysql():
     for i in range(0, 400000):
-        MySQLDB.execute_db( sql=INSERT_sql.format(1630561399338164226 + i))
+        MySQLDB.execute_db("ecoding.sql")
         logger.info("查询数据{}个".format(i))
         time.sleep(1)
+
 
 
 if __name__ == '__main__':

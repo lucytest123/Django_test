@@ -43,6 +43,8 @@ class readFileData():
                 config = MyConfigParser()
                 config.read(file_path, encoding="UTF-8")
                 data = dict(config._sections)
+                if data is None:
+                    data = ""
                 return data
             else:
                 logger.debug("{}文件路径不存在")

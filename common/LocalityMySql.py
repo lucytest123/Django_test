@@ -2,7 +2,7 @@ from Django_test.common.loggin import logger
 from Django_test.common.read_data import data
 import pymysql
 import os
-
+# 本地调试数据库
 Base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 data_file_path = os.path.join(Base_path, "config", "config.ini")
 host = data.load_ini(data_file_path)["locality_mysql"]["host"]
@@ -13,6 +13,7 @@ username = data.load_ini(data_file_path)["locality_mysql"]["username"]
 logger.info("输出结果为：" + username)
 password = data.load_ini(data_file_path)["locality_mysql"]["password"]
 logger.info("输出结果为：" + password)
+
 DB_CONF = {
     "host": host,
     "port": port,

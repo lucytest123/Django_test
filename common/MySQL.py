@@ -41,7 +41,7 @@ def MySqlHandle(file_name):
                     logger.info(".........." + sql_item)
                     return sql_item
     except FileNotFoundError as e:
-        logger.debug("sql文件异常：......" + str(e))
+        logger.debug("执行sql失败：......" + str(e))
         assert FileNotFoundError
 
 
@@ -53,17 +53,16 @@ class MySQLDB:
         logger.info("-----------数据库连对接成功")
         self.cur = self.conn.cursor(cursor=None)
 
-    def __del__(self):
-        self.conn.close()
-        self.cur.close()
-        logger.info("数据库链接关闭")
-
     def select_db(self, sql_name):
         self.conn.ping(reconnect=True)
         sql = MySqlHandle(sql_name)
         self.cur.execute(sql)
         sql_data = self.cur.fetchall()
         logger.info("查询数据结果：{}".format(sql_data))
+        self.conn.close()
+        self.cur.close()
+        logger.info("数据库链接关闭")
+
         return sql_data
 
     def execute_db(self, sql_name):
@@ -72,6 +71,10 @@ class MySQLDB:
             sql = MySqlHandle(sql_name)
             self.cur.execute(sql)
             self.conn.commit()
+            self.conn.close()
+            self.cur.close()
+            logger.info("数据库链接关闭")
+
         except Exception as e:
             logger.debug("操作Mysql出现错误，错误原因为：{}".format(e))
             self.conn.rollback()
