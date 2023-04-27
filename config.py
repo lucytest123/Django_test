@@ -28,7 +28,7 @@ def get_config_log(name):
 
 
 def get_ecding_mysql(name):
-    cf = config
+    cf = configparser.ConfigParser()
     parser.ConfigParser()
     cf.read(data_file_path)
     valuer = cf.get("edcmsql", name)

@@ -16,7 +16,7 @@ class Logger():
 
     def __init__(self):
         self.logname = os.path.join(log_dir, "{}.log".format(time.strftime("%Y%m%d-%H%M%S")))
-        self.logger = logging.getLogger("log")
+        self.logger = logging.getLogger("debug")
         self.logger.setLevel(logging.DEBUG)
         self.formater = logging.Formatter(
             '[%(asctime)s][%(filename)s %(lineno)d][%(levelname)s]: %(message)s')
@@ -28,6 +28,7 @@ class Logger():
         self.console.setFormatter(self.formater)
         self.logger.addHandler(self.filelogger)
         self.logger.addHandler(self.console)
+
 
 
 logger = Logger().logger
