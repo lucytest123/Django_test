@@ -7,13 +7,14 @@ from openpyxl import load_workbook
 
 identifier = 10000
 
+
 # ecoding 测试数据导入脚本
-def file_path():
+def file_path(file_name="测试导入.xlsx"):
     file = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     files_path = os.path.join(file, "file")
     if not os.path.exists(files_path):
         os.makedirs(files_path)
-    file_path = os.path.join(files_path, "测试导入.xlsx")
+    file_path = os.path.join(files_path, file_name)
     return file_path
 
 
