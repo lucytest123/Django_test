@@ -18,15 +18,17 @@ class Test_web_url():
         self.derver.maximize_window()
         time.sleep(self.time1)
 
-    # 页面定位查找 支持多种定位方法，默认使用xpath
-    #     ID = "id"
-    #     XPATH = "xpath"
-    #     LINK_TEXT = "link text"
-    #     PARTIAL_LINK_TEXT = "partial link text"
-    #     NAME = "name"
-    #     TAG_NAME = "tag name"
-    #     CLASS_NAME = "class name"
-    #     CSS_SELECTOR = "css selector"
+    """    页面定位查找 支持多种定位方法，默认使用xpath
+        ID = "id"
+        XPATH = "xpath"
+        LINK_TEXT = "link text"
+        PARTIAL_LINK_TEXT = "partial link text"
+        NAME = "name"
+        TAG_NAME = "tag name"
+        CLASS_NAME = "class name"
+        CSS_SELECTOR = "css selector
+    """
+
     def elements(self, by="xpath", positioning=None):
         if positioning != None:
             self.derver.find_element(by=by, value=positioning)
