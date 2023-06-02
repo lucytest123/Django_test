@@ -31,15 +31,14 @@ class synonymf():
         list = ["标准值：药品名", "同义词名称"]
         sheel.append(list)
         while self.i < number:
-            self.i = self.i + 1
-            print("循环次数｛｝".format(str(i)))
-            logger.info("循环次数｛｝".format(str(i)))
-            Verbatimstr = Verbatim[random.randint(0, 300)] + str(i)
+            self.i += 1
+            print("循环次数｛｝".format(str(self.i)))
+            logger.info("循环次数｛｝".format(str(self.i)))
+            Verbatimstr = Verbatim[random.randint(0, 300)] + str(self.i)
             sheel_list = [Verbatimstr, WHoDrug_Verbatim[random.randint(0, 300)]]
             sheel.append(sheel_list)
         wookbooks.save(self.file)
         wookbooks.close()
-
 
     def Meddra_xls(self, number):
         Verbatim = open_xls(2)
@@ -55,10 +54,10 @@ class synonymf():
         list = ["标准值:LLT", "同义词名称"]
         sheel.append(list)
         while self.i < number:
-            self.i = self.i + 1
-            print("循环次数｛｝".format(str(i)))
-            logger.info("循环次数｛｝".format(str(i)))
-            Verbatimstr = Verbatim[random.randint(0, 300)] + str(i)
+            self.i += 1
+            print("循环次数｛｝".format(str(self.i)))
+            logger.info("循环次数｛｝".format(str(self.i)))
+            Verbatimstr = Verbatim[random.randint(0, 300)] + str(self.i)
             sheel_list = [Verbatimstr, LLT_Verbatim[random.randint(0, 300)]]
             sheel.append(sheel_list)
         wookbooks.save(self.file)
