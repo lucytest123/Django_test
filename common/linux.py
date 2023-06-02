@@ -61,9 +61,8 @@ class Linux(object):
                 logger.info(ret)
                 return
 
-
-if __name__ == '__main__':
-    L = Linux(username="", password="", ip="")
-    L.Linux_connect()
-    L.Linux_send("ll")
-    L.Linux_close()
+    def Liunx(self, username, password, ip, cmd):
+        L = Linux(username=username, password=password, ip=ip)
+        L.Linux_connect()
+        L.Linux_send(cmd)
+        L.Linux_close()
