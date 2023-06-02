@@ -1,11 +1,11 @@
-import random
-
 from Django_test.file.file import *
+from Django_test.common.loggin import logger
 
 
 class synonymf():
     def __init__(self):
-        self.file = file_path(file_name="同义词导入.xls")
+        self.file = file_path(file_name="同义词导入.xlsx")
+        self.i = 0
 
     def synonymf_xls(self):
         print("请输入WhoDrug同义词数量")
@@ -18,43 +18,50 @@ class synonymf():
         self.Meddra_xls(number=Meddra_int)
 
     def WHoDrug_xls(self, number):
-        Verbatim = open_xls(5)
-        WHoDrug_Verbatim = open_xls(6)
+        Verbatim = open_xls(4)
+        WHoDrug_Verbatim = open_xls(5)
         if os.path.exists(self.file):
-                wookbooks = load_workbook(self.file)
+            wookbooks = load_workbook(self.file)
         else:
             wookbooks = openpyxl.Workbook()
-            wookbooks.save("同义词导入.xls", )
-        sheel = wookbooks.create_sheet("MedDRA同义词")
-        wookbooks.remove(wookbooks["Sheet"])
+            wookbooks.save("同义词导入.xlsx", )
+            wookbooks.remove(wookbooks["WHODrug同义词"])
+        sheel = wookbooks.create_sheet("WHODrug同义词")
+        wookbooks.remove(wookbooks["Sheet1"])
         list = ["标准值：药品名", "同义词名称"]
         sheel.append(list)
-        i = 0
-        while i < number:
-            i = i + 1
-            sheel_list = [WHoDrug_Verbatim[random.randint(0, 300)], Verbatim[random.randint(0, 300)]]
+        while self.i < number:
+            self.i = self.i + 1
+            print("循环次数｛｝".format(str(i)))
+            logger.info("循环次数｛｝".format(str(i)))
+            Verbatimstr = Verbatim[random.randint(0, 300)] + str(i)
+            sheel_list = [Verbatimstr, WHoDrug_Verbatim[random.randint(0, 300)]]
             sheel.append(sheel_list)
-        wookbooks.save(file_path())
+        wookbooks.save(self.file)
         wookbooks.close()
 
+
     def Meddra_xls(self, number):
-        Verbatim = open_xls(4)
+        Verbatim = open_xls(2)
         LLT_Verbatim = open_xls(3)
         if os.path.exists(self.file):
             wookbooks = load_workbook(self.file)
         else:
             wookbooks = openpyxl.Workbook()
-            wookbooks.save("同义词导入.xls", )
+            wookbooks.save("同义词导入.xlsx", )
+            wookbooks.remove(wookbooks["MedDRA同义词"])
         sheel = wookbooks.create_sheet("MedDRA同义词")
-        wookbooks.remove(wookbooks["Sheet"])
+        # wookbooks.remove(wookbooks["Sheet"])
         list = ["标准值:LLT", "同义词名称"]
         sheel.append(list)
-        i = 0
-        while i < number:
-            i = i + 1
-            sheel_list = [LLT_Verbatim[random.randint(0, 300)], Verbatim[random.randint(0, 300)]]
+        while self.i < number:
+            self.i = self.i + 1
+            print("循环次数｛｝".format(str(i)))
+            logger.info("循环次数｛｝".format(str(i)))
+            Verbatimstr = Verbatim[random.randint(0, 300)] + str(i)
+            sheel_list = [Verbatimstr, LLT_Verbatim[random.randint(0, 300)]]
             sheel.append(sheel_list)
-        wookbooks.save(file_path())
+        wookbooks.save(self.file)
         wookbooks.close()
 
 
