@@ -13,6 +13,6 @@ class video(object):
         url: 访问地址"""
         response = requests.get(url)
         sopu = BeautifulSoup(response.text, "html.parser")
-        video_duration = sopu.find("span", {"id": "video-time"})["date-content"]
-        logger.info("获取视频总时长为｛｝".format(video_duration))
-        return video_duration
+        self.outtimes = sopu.find("span", {"id": "video-time"})["date-content"]
+        logger.info("获取视频总时长为｛｝".format(self.outtimes))
+        return self.outtimes
