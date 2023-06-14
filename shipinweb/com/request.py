@@ -16,3 +16,6 @@ class video(object):
         self.outtimes = sopu.find("span", {"id": "video-time"})["date-content"]
         logger.info("获取视频总时长为｛｝".format(self.outtimes))
         return self.outtimes
+
+    def video_clieas(self):
+        pass

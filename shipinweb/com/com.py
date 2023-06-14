@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 
 from Django_test.common.loggin import logger
-from Django_test.shipinweb.com.picture import click_imread
+from Django_test.shipinweb.com.picture import picture_main
 
 
 class Test_web_url():
@@ -65,5 +65,5 @@ class Test_web_url():
             self.derver.execute_script("window.scrollBy(0,500)")
 
     # 根据图片寻找位置并点击
-    def fand_picture(self, picture):
-        click_imread(picture, number=1)
+    def fand_picture(self, pictures):
+        picture_main.click_imread(pictures, number=1)
