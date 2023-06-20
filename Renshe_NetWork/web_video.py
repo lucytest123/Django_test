@@ -30,6 +30,8 @@ class Renshe_NetWork(webdriver):
         logger.info("打开学习列表")
         Renshe_NetWork.video_list(self, "开始学习")
         Renshe_NetWork.switch(self)
+        Renshe_NetWork.Click_learn(self)
+        Renshe_NetWork.quit(self)
 
     def video_list(self, text):
         html = self.driver.page_source
@@ -47,6 +49,7 @@ class Renshe_NetWork(webdriver):
         return count
 
     def log_on(self):
+        """登录"""
         self.driver.find_element(by=By.XPATH, value=passwork()).send_keys(self.username)
         logger.info("输入账号：")
         time.sleep(self.TIME_10)
@@ -76,6 +79,20 @@ class Renshe_NetWork(webdriver):
             else:
                 logger.info("播放结束")
                 break
+
+    def Click_learn(self):
+        """相同按钮，依次点击"""
+        buttons = self.driver.find_element(by=By.NAME, value="点击学习")
+        for button in buttons:
+            button.click()
+            time.sleep(self.TIME_10)
+            Renshe_NetWork.video_paly(self)
+            time.sleep(self.TIME_10)
+            self.driver.back()
+
+    def quit(self):
+        """退出浏览器"""
+        self.driver.quit()
 
 
 if __name__ == '__main__':
