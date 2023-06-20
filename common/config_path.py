@@ -1,5 +1,5 @@
 import os
-from Django_test.common.read_data import data
+from common.read_data import data
 
 
 def commfig(name):

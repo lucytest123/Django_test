@@ -3,7 +3,7 @@ import logging.handlers
 import os, time
 from pathlib import Path
 
-from Django_test import config
+import config
 
 file_path = config.conlog("log_path")
 

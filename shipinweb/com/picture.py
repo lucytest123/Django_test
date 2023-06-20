@@ -6,7 +6,7 @@ import win32con
 import time
 import aircv as ac
 import pyautogui
-from Django_test.common.loggin import logger
+from common.loggin import logger
 
 
 class picture_main(object):
