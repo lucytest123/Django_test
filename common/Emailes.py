@@ -1,7 +1,7 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-from Django_test.common.loggin import logger
+from common.loggin import logger
 
 mail_host = "smtp.qq.com"  # 服务器地址
 mail_user = "1258881069@qq.com"  # 用户名

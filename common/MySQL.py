@@ -1,5 +1,5 @@
-from Django_test.common.loggin import logger
-from Django_test.common.read_data import data
+from common.loggin import logger
+from common.read_data import data
 import pymysql
 import os
 

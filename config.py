@@ -1,6 +1,8 @@
 import configparser
 import os.path
 
+from fire import parser
+
 Base_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 data_file_path = os.path.join(Base_path, "Django_test\config", "config.ini")
 

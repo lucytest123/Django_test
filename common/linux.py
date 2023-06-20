@@ -2,7 +2,7 @@ import re
 import time
 
 import paramiko
-from Django_test.common.loggin import logger
+from common.loggin import logger
 
 
 class Linux(object):
