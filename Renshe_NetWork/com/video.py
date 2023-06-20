@@ -25,14 +25,14 @@ class video_operate(object):
             logger.debug("异常抛出：{}".format(e))
 
     def video_time(self):
-        """获取页面视频是藏"""
+        """获取页面视频时长"""
         try:
             # 查找视频元素
             video_element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "video")))
             # 获取视频时长
             video_duration = int(self.driver.execute_script("return arguments[0].duration", video_element))
             logger.info(f"视频时长为：{video_duration}秒")
-            return video_duration
+            return int(video_duration)
         except AssertionError as e:
             logger.debug("视频获取失败：{}".format(e))
 
