@@ -11,6 +11,7 @@ from com.button import *
 
 class Renshe_NetWork(webdriver):
     def __init__(self):
+        self.driver = None
         self.TIME_10 = 10
         self.TIME_480 = 60 * 8
         self.log_url = red_config.zu_config("log_url")
@@ -45,7 +46,7 @@ class Renshe_NetWork(webdriver):
                 count[match] += 1
             else:
                 count[match] = 1
-        logger.info(f"视频总数为：{match}")
+        logger.info("视频总数为：{}".format(count))
         return count
 
     def log_on(self):
