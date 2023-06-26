@@ -1,8 +1,8 @@
 import re
+import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 from Renshe_NetWork.com import red_config
 from Renshe_NetWork.com.video import video_operate
 from common.loggin import logger
@@ -32,7 +32,8 @@ class Renshe_NetWork(webdriver):
         Renshe_NetWork.video_list(self, "开始学习")
         Renshe_NetWork.switch(self)
         Renshe_NetWork.Click_learn(self)
-        Renshe_NetWork.quit(self)
+        logger.info("视频全部播放完毕")
+        self.driver.quit()
 
     def video_list(self, text):
         html = self.driver.page_source
@@ -90,10 +91,6 @@ class Renshe_NetWork(webdriver):
             Renshe_NetWork.video_paly(self)
             time.sleep(self.TIME_10)
             self.driver.back()
-
-    def quit(self):
-        """退出浏览器"""
-        self.driver.quit()
 
 
 if __name__ == '__main__':

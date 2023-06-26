@@ -10,3 +10,10 @@ def zu_config(value):
     comfig.read(con_path)
     values = comfig.get("zu", value)
     return values
+
+
+def config(key, value):
+    comfig = configparser.ConfigParser()
+    comfig.read(con_path)
+    value = comfig.get(key, value)
+    return value
